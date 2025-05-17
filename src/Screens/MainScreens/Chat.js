@@ -127,8 +127,12 @@ const Chat = props => {
   };
 
   const submit = () => {
-    console.log(userDetail.user_id, props?.route?.params.chatUser_id);
     try {
+      // Dono blank hain? Return kar jao
+      if (!message?.trim() && !imageFile?.data) {
+        console.log('Neither message nor image selected.');
+        return;
+      }
       const d = [
         {
           name: 'sender_id',

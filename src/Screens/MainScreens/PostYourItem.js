@@ -33,7 +33,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Geolocation from 'react-native-geolocation-service';
 import Geocode from 'react-geocode';
 import axios from 'axios';
-import { GOOGLE_API_KEY } from '../../Config';
+import {GOOGLE_API_KEY} from '../../Config';
 
 const width = Dimensions.get('window').width;
 const selectionCamera = createRef();
@@ -44,7 +44,9 @@ const wait = timeout => {
 
 const PostYourItem = props => {
   const [loading, setLoading] = useState(false);
-  const [value, setValue] = React.useState();
+  const [value, setValue] = React.useState(() =>
+    props?.route?.params?.type != null ? String(props.route.params.type) : '',
+  );
   const [category, setCategory] = React.useState([]);
   const [itemObj, setItemObj] = React.useState({
     itemName: '',
@@ -75,7 +77,7 @@ const PostYourItem = props => {
   const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
-    setValue(props?.route?.params?.type);
+    // setValue(props?.route?.params?.type);
     getCategory();
     getuserDetail();
 
@@ -85,7 +87,7 @@ const PostYourItem = props => {
           ? 'Post Your Item'
           : 'Update Your Item',
     });
-  }, [props?.route?.params?.type]);
+  }, []);
 
   useEffect(() => {
     if (props?.route?.params?.item_id) {
@@ -128,7 +130,7 @@ const PostYourItem = props => {
               setImageFile(img);
             }
           });
-          setValue(parseInt(res?.data?.item));
+          // setValue(parseInt(res?.data?.item));
         }
       },
       err => {

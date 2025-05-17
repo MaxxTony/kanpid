@@ -36,7 +36,7 @@ const actionSheetRef2 = createRef();
 const width = Dimensions.get('window').width;
 const ProductView = props => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [itemId, setItemId] = useState();
+  const [itemId, setItemId] = useState(props?.route?.params?.itemId);
   const images = [
     require('../../assets/Images/viewphone.png'),
     require('../../assets/Images/phone2.png'),
@@ -55,7 +55,7 @@ const ProductView = props => {
   const [showPhone, setShowPhone] = useState(false);
   useEffect(() => {
     // setImageList(images);
-    setItemId(props?.route?.params?.itemId);
+    // setItemId(props?.route?.params?.itemId);
     if (itemId != undefined) {
       getItemDetail();
     }

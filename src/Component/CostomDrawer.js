@@ -232,7 +232,10 @@ const CostomDrawer = props => {
                     justifyContent: 'space-between',
                   }}
                   onPress={() => {
-                    navigation.navigate('SerarchResult');
+                    // navigation.navigate('SerarchResult');
+                    navigation.navigate('SerarchResult', {
+                      type: `search_request?user_id=${userDetail.user_id}`,
+                    });
                   }}>
                   <Text
                     style={{
@@ -266,7 +269,8 @@ const CostomDrawer = props => {
                     justifyContent: 'space-between',
                   }}
                   onPress={() => {
-                    navigation.navigate('PostYourItem');
+                    const type = 1;
+                    navigation.navigate('PostYourItem', {type});
                   }}>
                   <Text
                     style={{
@@ -299,7 +303,8 @@ const CostomDrawer = props => {
                     justifyContent: 'space-between',
                   }}
                   onPress={() => {
-                    navigation.navigate('PostYourItem');
+                    const type = 2;
+                    navigation.navigate('PostYourItem', {type});
                   }}>
                   <Text
                     style={{

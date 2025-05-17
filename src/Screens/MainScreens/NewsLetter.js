@@ -38,13 +38,13 @@ const NewsLetter = props => {
       Post('postSubscribe', data).then(
         async res => {
           setLoading(false);
-          console.log(res);
+        
           if (res.status == 200) {
-            // props.navigation.push('main');
-            // Toaster(`Subscribe SucessFully on ${userDetail.email}`);
-            // setUserDetail({
-            //   email: '',
-            // });
+            props.navigation.push('main');
+            Toaster(`Subscribe SucessFully on ${userDetail.email}`);
+            setUserDetail({
+              email: '',
+            });
           } else {
             Toaster(res.message);
           }

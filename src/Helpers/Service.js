@@ -21,6 +21,7 @@ const Post = async (url, data) => {
 const GetApi = async url => {
   const user = await AsyncStorage.getItem('userDetail');
   let userDetail = JSON.parse(user);
+  
   return axios
     .get(Constants.baseUrl + url, {
       headers: {
